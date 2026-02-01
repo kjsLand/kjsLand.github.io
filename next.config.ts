@@ -1,7 +1,7 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  output: "export",          // makes static HTML
-  images: { unoptimized: true }
+const repo = "kjsLand.github.io";
+
+module.exports = {
+  output: "export",
+  images: { unoptimized: true },
 };
 
-module.exports = nextConfig;
