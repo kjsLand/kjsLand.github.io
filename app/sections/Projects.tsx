@@ -11,37 +11,46 @@ type Project = {
 
 const projects: Project[] = [
   {
-    tag: "UI/UX Design",
+    tag: "Chrome Extension",
     tagClasses: "bg-blue-500/20 text-blue-100 border border-blue-400/30",
-    title: "E-commerce Redesign",
+    title: "The Scribbler",
     description:
-      "Complete overhaul of shopping experience with focus on conversion optimization.",
-    gradient: "from-blue-600 to-blue-800",
-    href: "#",
+      "Finds a canvas on the Jackbox TKO browser and draws a given image with the colors required by the game.",
+    gradient: "from-blue-600 to-black-800",
+    href: "https://github.com/kjsLand/TheScribbler",
   },
   {
-    tag: "Frontend Development",
+    tag: "Python App",
     tagClasses: "bg-emerald-500/20 text-emerald-100 border border-emerald-400/30",
-    title: "Dashboard UI Kit",
+    title: "Rate It",
     description:
-      "Component library for data-heavy applications with real-time visualization.",
-    gradient: "from-emerald-600 to-teal-800",
-    href: "#",
+      "Uses requests library and Spotify's API to help users locally store ratings for songs. The goal is to quickly create playlists and discover new artists.",
+    gradient: "from-emerald-600 to-black-800",
+    href: "https://github.com/kjsLand/rate_it",
   },
   {
-    tag: "Brand Identity",
+    tag: "Research Project",
     tagClasses: "bg-pink-500/20 text-pink-100 border border-pink-400/30",
-    title: "Fintech Mobile App",
+    title: "DQI SAT Solver",
     description:
-      "Design system and mobile interface for personal finance management.",
-    gradient: "from-pink-600 to-fuchsia-800",
-    href: "#",
+      "This is the capstone project I created for my master's program which explores the idea of a quantum speedup for the SAT problem. This github repo will be private until paper is released.",
+    gradient: "from-pink-600 to-black-800",
+    href: "https://github.com/kjsLand/DQI_SAT_Solver",
+  },
+  {
+    tag: "Full Stack Website",
+    tagClasses: "bg-yellow-500/20 text-yellow-100 border border-yellow-400/30",
+    title: "Vendorstub",
+    description:
+      "Contract management platform MVP being developed. Tech stack is next.js, tailwing, postgresql, and AWS.",
+    gradient: "from-yellow-600 to-black-800",
+    href: "https://vendorstub.com/",
   },
 ];
 
 export default function Projects(){
     return (
-        <section id="projects" className="py-20">
+        <section id="projects" className="py-15">
           <div className="container mx-auto px-4">
             <div className="text-center mb-14">
               <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
