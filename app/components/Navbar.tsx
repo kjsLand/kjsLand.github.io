@@ -8,12 +8,21 @@ export default function Navbar() {
           Kevin<span className="text-indigo-600">.</span>
         </a>
 
-        <nav className="hidden sm:flex items-center gap-6 text-sm text-gray-700">
+        <nav className="hidden sm:flex items-center gap-6 text-sm">
           <a href="#work" className="hover:text-indigo-600 transition">
             Work
           </a>
-          <a href="#about" className="hover:text-indigo-600 transition">
-            About
+          <a href="#education" className="hover:text-indigo-600 transition">
+            Education
+          </a>
+          <a href="#projects" className="hover:text-indigo-600 transition">
+            Projects
+          </a>
+          <a href="#papers" className="hover:text-indigo-600 transition">
+            Papers
+          </a>
+          <a href="#skills" className="hover:text-indigo-600 transition">
+            Skills
           </a>
           <a href="#contact" className="hover:text-indigo-600 transition">
             Contact

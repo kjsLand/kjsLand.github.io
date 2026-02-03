@@ -17,7 +17,7 @@ const stats: StatCardProps[] = [
         description: "test"
     },
     {
-        number: 3,
+        number: 4,
         title: "Personal Projects",
         description: "test"
     },
