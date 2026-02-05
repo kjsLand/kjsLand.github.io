@@ -33,43 +33,51 @@ function WorkExperienceCard({ exp }: { exp: WorkExperience }) {
   return (
     <article
       className="
-        w-[420px] h-[420px]
+        w-[440px] h-[420px]
         rounded-3xl
+        bg-gradient-to-br from-white to-gray-50
         border border-gray-200
-        bg-white
-        shadow-md hover:shadow-xl
+        shadow-lg hover:shadow-2xl
         transition-all duration-300
         hover:-translate-y-1
+        hover:border-blue-300
       "
     >
-      <div className="p-8">
-        {/* Timeline pill */}
-        <div className="
-          inline-flex items-center
-          rounded-full
-          border border-gray-300
-          bg-gray-100
-          px-4 py-1.5
-          text-sm
-          text-gray-700
-        ">
-          {exp.timeline}
+      <div className="p-9 h-full flex flex-col">
+
+        {/* Top row */}
+        <div className="flex items-center justify-between">
+          <span
+            className="
+              text-xs font-medium
+              px-4 py-1.5 rounded-full
+              bg-blue-50 text-blue-700
+            "
+          >
+            {exp.timeline}
+          </span>
         </div>
 
         {/* Role */}
-        <h3 className="mt-6 text-2xl font-semibold text-gray-900">
+        <h3 className="mt-6 text-2xl font-semibold tracking-tight text-gray-900">
           {exp.role}
         </h3>
 
         {/* Company */}
-        <p className="mt-2 text-base font-medium text-gray-600">
+        <p className="mt-1 text-lg font-medium text-gray-600">
           {exp.company}
         </p>
 
+        {/* Divider */}
+        <div className="mt-5 h-px w-full bg-gradient-to-r from-blue-400/40 to-transparent" />
+
         {/* Description */}
-        <p className="mt-6 text-base leading-relaxed text-gray-700">
+        <p className="mt-5 text-base leading-relaxed text-gray-700">
           {exp.description}
         </p>
+
+        {/* Spacer pushes bottom content down if you add later */}
+        <div className="flex-grow" />
       </div>
     </article>
   );
@@ -77,7 +85,7 @@ function WorkExperienceCard({ exp }: { exp: WorkExperience }) {
 
 export default function WorkExperienceRow() {
   return (
-    <section className="w-full pt-10">
+    <section className="max-w-4xl pt-10 mx-auto">
       {/* Centered scroller */}
       <div className="flex justify-center">
         <div

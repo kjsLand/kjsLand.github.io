@@ -8,7 +8,7 @@ const preprints = [
     status: "Preprint",
     venue: "arXiv",
     abstract:
-      "We propose a hybrid decoding pipeline that combines ... and show improvements on benchmark lattices...",
+      "We presented a quantum algorithm for estimating Sobol Indices of non-smooth models with a quadratic speedup over classical methods and accuracy improvements by leveraging Gaussian quadrature rules.",
     tags: ["QAEA", "PDE", "ODE"],
     links: {
       preprint: "https://arxiv.org/abs/xxxx.xxxxx",
@@ -23,7 +23,7 @@ const preprints = [
     status: "Preprint",
     venue: "arXiv",
     abstract:
-      "We propose a hybrid decoding pipeline that combines ... and show improvements on benchmark lattices...",
+      "I proposed a method for solving the knapsack problem more efficiently by using a quantum SAT solver backed by the DQI algorithm.",
     tags: ["DQI", "Gadgets", "SAT"],
     links: {
       preprint: "https://arxiv.org/abs/xxxx.xxxxx",
@@ -35,7 +35,7 @@ const preprints = [
 
 export default function PreprintsSection() {
   return (
-    <section id="preprints" className="py-16">
+    <section id="papers" className="py-16">
       <div className="container mx-auto px-4">
         <div className="text-center mb-10">
           <h2 className="text-3xl font-bold text-white-900">Preprints</h2>

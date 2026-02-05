@@ -18,34 +18,17 @@ export default function HomePage() {
         {/* Keep your Hero component; make sure it matches theme or add theme classes there */}
         <Hero />
 
-        {/* <div className="max-w-3xl w-full">
-        <CrtTerminalPanel
-          title="kevin@terminal:~$ whoami"
-          subtitle="Full-stack dev building fast web apps and AI tools."
-          tags={["CONNECTED", "SECURE", "ONLINE"]}
-          primaryHref="#work"
-          primaryText="View Work"
-          secondaryHref="#contact"
-          secondaryText="Contact"
-        >
-          <p>$ ls projects</p>
-          <p className="mt-2 text-emerald-50/70">
-            vendorfinder • rateit • thescribbler • portfolio
-          </p>
-        </CrtTerminalPanel>
-      </div> */}
+        <Work />
+        
+        <Education />
 
-      <Work />
-      
-      <Education />
+        <Projects />
 
-      <Projects />
+        <Papers />
 
-      <Papers />
+        <Skills />
 
-      <Skills />
-
-      <Contact />
+        <Contact />
       </main>
 
       <Footer />

@@ -176,7 +176,7 @@ function GpaLineSparkline({
 
 function DegreeCard({ d }: { d: Degree }) {
   return (
-    <article className="rounded-2xl border border-gray-200 bg-white shadow-sm p-7">
+    <article className="max-w-4xl pt-10 mx-auto rounded-2xl border border-gray-200 bg-white shadow-sm p-7">
       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
         <div>
           <h3 className="text-xl font-semibold text-gray-900">{d.degree}</h3>

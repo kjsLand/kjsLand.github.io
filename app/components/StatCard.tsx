@@ -2,33 +2,28 @@
 type StatCardProps = {
   number: string | number;
   title: string;
-  description: string;
 };
 
 const stats: StatCardProps[] = [
     {
         number: 3,
         title: "Work Experiences",
-        description: "test"
     },
     {
         number: 2,
         title: "Degrees",
-        description: "test"
     },
     {
         number: 4,
         title: "Personal Projects",
-        description: "test"
     },
     {
         number: 2,
         title: "Papers",
-        description: "test"
     }
 ]
 
-export function StatCard({ number, title, description }: StatCardProps) {
+export function StatCard({ number, title }: StatCardProps) {
   return (
     <div
       className="
@@ -46,7 +41,6 @@ export function StatCard({ number, title, description }: StatCardProps) {
     >
       <p className="text-5xl font-bold leading-none">{number}</p>
       <h3 className="mt-3 text-base font-semibold text-white/95">{title}</h3>
-      <p className="mt-1 text-sm text-white/80">{description}</p>
     </div>
   );
 }

@@ -1,4 +1,19 @@
-const skills = ["Figma", "React", "TypeScript", "Design Systems", "User Research"];
+const skills = [
+    "Python",
+    "Javascript",
+    "Next.js",
+    "CSS",
+    "Tailwind",
+    "Postgressql",
+    "AWS",
+    "HTML",
+    "Github Actions",
+    "Agile",
+    "FastAPI",
+    "Selenium", 
+    "Unit Testing",
+    "Jupyter Notebooks", 
+];
 
 export default function Skills() {
     return (
@@ -12,7 +27,7 @@ export default function Skills() {
               </p>
             </div>
 
-            <div className="mt-6 flex flex-wrap gap-3 justify-center">
+            <div className="mt-7 max-w-xl mx-auto flex flex-wrap gap-3 justify-center">
                 {skills.map((s) => (
                     <span
                     key={s}
@@ -27,6 +42,7 @@ export default function Skills() {
                     </span>
                 ))}
             </div>
+
         </div>
     );
 }
