@@ -7,6 +7,13 @@ type WorkExperience = {
 
 const experiences: WorkExperience[] = [
   {
+    timeline: "May 2025 – Dec 2025",
+    role: "Research Engineer",
+    company: "Vogt Labs",
+    description:
+      "• Conducted research on quantum algorithms for numerical integration, validating theoretical findings through Python/Jupyter implementations and serving as lead author on a resulting research paper",
+  },
+  {
     timeline: "Aug 2023 – Aug 2024",
     role: "Junior Software Engineer",
     company: "Metrics That Matter",

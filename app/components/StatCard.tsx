@@ -6,7 +6,7 @@ type StatCardProps = {
 
 const stats: StatCardProps[] = [
     {
-        number: 3,
+        number: 4,
         title: "Work Experiences",
     },
     {
