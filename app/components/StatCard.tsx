@@ -5,22 +5,22 @@ type StatCardProps = {
 };
 
 const stats: StatCardProps[] = [
-    {
-        number: 4,
-        title: "Work Experiences",
-    },
-    {
-        number: 2,
-        title: "Degrees",
-    },
-    {
-        number: 4,
-        title: "Personal Projects",
-    },
-    {
-        number: 2,
-        title: "Papers",
-    }
+  {
+    number: 4,
+    title: "Work Experiences",
+  },
+  {
+    number: 5,
+    title: "Personal Projects",
+  },
+  {
+    number: 2,
+    title: "Degrees",
+  },  
+  {
+    number: 2,
+    title: "Papers",
+  }
 ]
 
 export function StatCard({ number, title }: StatCardProps) {
