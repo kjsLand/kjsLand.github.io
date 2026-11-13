@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# kjsLand.github.io
 
-## Getting Started
-
-First, run the development server:
+Personal portfolio for Kevin Land, built with Next.js 16 (static export), Tailwind CSS v4, and TypeScript.
+It deploys to GitHub Pages on every push to `main`.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # static site in ./out
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Updating the site
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**All content lives in [`/content`](content).** You almost never need to touch a component.
+Every file has a copy-paste template at the top.
 
-## Learn More
+| I want to… | Edit | Notes |
+|---|---|---|
+| Add a job | [`content/experience.ts`](content/experience.ts) | Newest first. `end: "Present"` works, and the duration ("1 yr 2 mos") is computed for you. |
+| Add a project | [`content/projects.ts`](content/projects.ts) | `featured: true` gives it a wide tile, and the bento grid rebalances itself. `hue` (0–360) colors the generated cover. To use a screenshot, put it in `public/projects/` and set `image: "/projects/name.png"`. |
+| Publish a paper link | [`content/papers.ts`](content/papers.ts) | Add `links: { paper, pdf, code }`. Buttons only appear for links that exist. |
+| Make a private repo public | [`content/projects.ts`](content/projects.ts) | Remove `private: true`. |
+| Add a degree / term GPA | [`content/education.ts`](content/education.ts) | Each term becomes a point on the chart. |
+| Add a skill | [`content/skills.ts`](content/skills.ts) | It shows up in the Skills section, the marquee, and the ⌘K palette. For a brand icon, add it to [`SkillIcon.tsx`](app/components/ui/SkillIcon.tsx). |
+| Change name, roles, tagline, or links | [`content/site.ts`](content/site.ts) | `roles` feeds the hero typewriter. Set `availability` to show a green "open to work" pill, and `resumeUrl` to show a Résumé button. |
+| Add, remove, or reorder a section | [`app/sections/index.ts`](app/sections/index.ts) | Updates the page order, the navbar, the ⌘K palette, and the 01/02/03 numbering. |
 
-To learn more about Next.js, take a look at the following resources:
+The hero stats (work experiences, projects, degrees, papers) are **counted from these files**, so they never go stale.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Adding a brand-new section
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Copy [`app/sections/Skills.tsx`](app/sections/Skills.tsx) to e.g. `app/sections/Talks.tsx`.
+   Wrap the content in `<Section id="talks" eyebrow="Talks" title="Things I've" accent="said">`.
+2. Optionally create `content/talks.ts` for its data.
+3. Register it in [`app/sections/index.ts`](app/sections/index.ts).
 
-## Deploy on Vercel
+### Reusable building blocks (`app/components/ui`)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `Section`: section shell with an eyebrow, a heading with a serif accent word, and a drifting ghost title
+- `Reveal`: fades and lifts its children in when scrolled into view (`delay` staggers them)
+- `SpotlightCard`: card with a glow and border that follow the cursor
+- `Tag`: mono chip (`tone="default" | "accent" | "mint"`)
+- `MagneticLink`: button-link that leans toward the cursor
+- `CountUp`, `Typewriter`, `SplitText`: hero text effects
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Theme
+
+Colors, fonts, and animations are tokens at the top of [`app/globals.css`](app/globals.css) (`@theme`).
+Change `--color-violet` and `--color-cyan` to re-skin the whole site.
+
+### Motion and accessibility
+
+Every effect respects `prefers-reduced-motion`. With reduced motion on, the page is static and fully readable.
+CSS scroll-driven animations (`animation-timeline: view()`) are progressive enhancements, so browsers without them still get a complete page.
+See [`docs/REDESIGN_PLAN.md`](docs/REDESIGN_PLAN.md) for the design rationale and research sources.
