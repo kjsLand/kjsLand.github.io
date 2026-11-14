@@ -5,7 +5,6 @@ import { experience, papers, site, socials, type Experience } from "@/content";
 import { duration, monthNumber, pad2 } from "@/app/lib/format";
 import { sections } from "@/app/sections";
 import { pageNav } from "@/app/lib/nav";
-import Background from "@/app/components/layout/Background";
 import CommandPalette, { type PaletteItem } from "@/app/components/layout/CommandPalette";
 import Footer from "@/app/components/layout/Footer";
 import Navbar from "@/app/components/layout/Navbar";
@@ -56,7 +55,6 @@ export default function ExperiencePage() {
       >
         Skip to content
       </a>
-      <Background />
       <ScrollEffects />
       <Navbar items={pageNav} brand={site.name} brandHref="/" current="experience" />
       <CommandPalette items={paletteItems} />
@@ -73,7 +71,7 @@ export default function ExperiencePage() {
           <Reveal delay={80}>
             <h1 className="max-w-4xl text-5xl font-semibold tracking-tight text-fg md:text-7xl">
               Where I&apos;ve worked,{" "}
-              <span className="text-gradient pr-1 font-serif font-normal italic">what I&apos;ve built.</span>
+              <span className="pr-1 font-serif font-normal italic text-gold">what I&apos;ve built.</span>
             </h1>
           </Reveal>
           <Reveal delay={160}>
@@ -178,7 +176,7 @@ function RoleRow({ job, index }: { job: Experience; index: number }) {
         <ul className="mt-6 space-y-3">
           {job.highlights.map((h) => (
             <li key={h} className="flex gap-3 text-[15px] leading-relaxed text-muted md:text-base">
-              <span aria-hidden className="mt-[0.65em] h-1 w-3 shrink-0 rounded-full bg-accent-gradient" />
+              <span aria-hidden className="mt-[0.65em] h-1 w-3 shrink-0 bg-accent-dash" />
               <span>{h}</span>
             </li>
           ))}

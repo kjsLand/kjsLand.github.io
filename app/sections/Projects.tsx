@@ -12,7 +12,7 @@ export default function Projects({ index }: { index?: number }) {
         <Reveal>
           <p className="mb-6 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.25em] text-muted">
             {index !== undefined && <span className="text-gold">{String(index).padStart(2, "0")}</span>}
-            <span className="h-px w-10 bg-accent-gradient" />
+            <span className="h-px w-10 bg-accent-dash" />
             Projects
             <span className="text-faint">· {projects.length}</span>
           </p>
@@ -22,7 +22,7 @@ export default function Projects({ index }: { index?: number }) {
           {projects.map((p, i) => (
             <Reveal as="li" key={p.title} delay={(i % 3) * 90} className="h-full">
               <SpotlightCard as="article" className="group flex h-full flex-col overflow-hidden">
-                <div className="relative h-48">
+                <div className="relative aspect-[2/1]">
                   <ProjectCover project={p} />
                   <div className="absolute left-4 top-4 flex gap-2">
                     <Tag className="border-white/15 bg-ink/50 text-fg backdrop-blur">{p.kind}</Tag>
@@ -50,7 +50,8 @@ export default function Projects({ index }: { index?: number }) {
                         rel="noreferrer"
                         className="inline-flex items-center gap-1.5 rounded-full bg-fg px-4 py-2 text-sm font-medium text-ink transition-transform hover:-translate-y-0.5"
                       >
-                        Visit site <FiArrowUpRight aria-hidden />
+                        {p.links.live.includes("chromewebstore.google.com") ? "Chrome Web Store" : "Visit site"}{" "}
+                        <FiArrowUpRight aria-hidden />
                       </a>
                     )}
                     {p.links?.repo && !p.private && (

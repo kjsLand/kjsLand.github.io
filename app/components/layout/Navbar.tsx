@@ -72,7 +72,7 @@ export default function Navbar({
         }`}
       >
         <a href={brandHref} className="flex items-center gap-2 font-semibold tracking-tight text-fg">
-          <span className="grid h-7 w-7 place-items-center rounded-full bg-accent-gradient font-mono text-[11px] font-bold text-ink">
+          <span className="grid h-7 w-7 place-items-center rounded-full bg-gold font-mono text-[11px] font-bold text-ink">
             {brand
               .split(" ")
               .map((w) => w[0])

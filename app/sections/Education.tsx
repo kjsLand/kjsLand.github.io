@@ -37,7 +37,7 @@ export default function Education({ index }: { index?: number }) {
                   </div>
                   {avg !== null && (
                     <div className="shrink-0 text-right">
-                      <p className="text-gradient text-4xl font-semibold tracking-tight">{avg.toFixed(2)}</p>
+                      <p className="text-4xl font-semibold tracking-tight text-gold">{avg.toFixed(2)}</p>
                       <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-faint">avg. term GPA</p>
                     </div>
                   )}

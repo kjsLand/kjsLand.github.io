@@ -12,7 +12,7 @@ export default function Contact({ index }: { index?: number }) {
         <Reveal className="flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
           <p className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.25em] text-muted">
             {index !== undefined && <span className="text-gold">{String(index).padStart(2, "0")}</span>}
-            <span className="h-px w-10 bg-accent-gradient" />
+            <span className="h-px w-10 bg-accent-dash" />
             Contact
           </p>
           <CopyEmail email={site.email} />

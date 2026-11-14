@@ -132,7 +132,7 @@ function JobCard({ job }: { job: Experience }) {
       <ul className="mt-5 space-y-3">
         {job.highlights.map((h) => (
           <li key={h} className="flex gap-3 text-[15px] leading-relaxed text-muted">
-            <span aria-hidden className="mt-[0.6em] h-1 w-3 shrink-0 rounded-full bg-accent-gradient" />
+            <span aria-hidden className="mt-[0.6em] h-1 w-3 shrink-0 bg-accent-dash" />
             <span>{h}</span>
           </li>
         ))}
@@ -162,7 +162,7 @@ function DegreeCard({ degree, id }: { degree: Degree; id: string }) {
         </div>
         {avg !== null && (
           <div className="shrink-0 text-right">
-            <p className="text-gradient text-3xl font-semibold tracking-tight md:text-4xl">{avg.toFixed(2)}</p>
+            <p className="text-3xl font-semibold tracking-tight text-gold md:text-4xl">{avg.toFixed(2)}</p>
             <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-faint">avg. term GPA</p>
           </div>
         )}

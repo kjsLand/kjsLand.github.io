@@ -16,13 +16,11 @@ export default function Hero() {
 
   return (
     <section id="top" className="relative overflow-hidden pb-6 pt-32 md:pb-10 md:pt-40">
-      {/* Signature effect: a field of grey digits with digital rain. Hovering lights them up gold. */}
-      {/* Masked to fade out at the bottom so it blends into the project grid below. */}
-      <div className="absolute inset-0 -z-10 [mask-image:linear-gradient(to_bottom,black_55%,transparent)]">
+      {/* Signature effect: a field of grey digits with digital rain. Hovering lights them up gold.
+          It stops on a hard dashed edge rather than fading out. */}
+      <div className="absolute inset-0 -z-10 border-b border-dashed border-line">
         <MatrixField />
       </div>
-      {/* Soft vignette behind the copy so the name stays readable over the digits. */}
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_50%_55%_at_50%_50%,rgb(10_13_18/0.85),transparent_75%)]" />
 
       <div className="mx-auto flex w-full max-w-6xl flex-col items-center px-5 text-center md:px-8">
         <Reveal>
@@ -42,7 +40,7 @@ export default function Hero() {
 
         <h1 className="mt-6 font-heading text-[clamp(3rem,10vw,6.5rem)] font-bold leading-[1] tracking-[-0.02em] text-fg">
           <SplitText text={first} />{" "}
-          <SplitText text={last} offset={first.length} gradient />
+          <SplitText text={last} offset={first.length} className="text-gold" />
         </h1>
 
         <Reveal delay={500}>

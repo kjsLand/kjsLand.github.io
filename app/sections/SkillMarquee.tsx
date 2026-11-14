@@ -7,7 +7,7 @@ export default function SkillMarquee() {
   const loop = [...all, ...all];
 
   return (
-    <div aria-label="Skills" className="group relative overflow-hidden border-y border-line bg-ink-2/60 py-6 mask-fade-x">
+    <div aria-label="Skills" className="group relative overflow-hidden border-y border-line bg-ink-2/60 py-6">
       <ul className="flex w-max animate-marquee items-center group-hover:[animation-play-state:paused]">
         {loop.map((skill, i) => (
           <li

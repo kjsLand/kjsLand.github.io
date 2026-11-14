@@ -6,7 +6,7 @@ export type YearGroup = { year: string; content: ReactNode };
 
 /**
  * Vertical "journey" timeline: a sticky year + node on the left, that year's entries on the right,
- * and a rail whose gradient fill grows as you scroll. Years light up once the fill reaches them.
+ * and a dashed rail whose striped fill grows as you scroll. Years light up once the fill reaches them.
  *
  * Progress runs from "container top at 10% of the viewport" to "container bottom at 50%",
  * so the fill always reaches the last node before the timeline scrolls away.
@@ -84,15 +84,15 @@ export default function YearTimeline({ groups }: { groups: YearGroup[] }) {
         </div>
       ))}
 
-      {/* The rail: a faint track, with a gradient fill that follows scroll. */}
+      {/* The rail: a dashed track, with a striped fill that follows scroll. */}
       <div
         ref={railRef}
         aria-hidden
-        className="absolute left-[31px] top-0 h-full w-[2px] overflow-hidden bg-gradient-to-b from-transparent via-line to-transparent [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]"
+        className="absolute left-[31px] top-0 h-full w-[2px] overflow-hidden border-l-2 border-dashed border-line"
       >
         <div
           ref={fillRef}
-          className="absolute inset-x-0 top-0 h-0 w-[2px] rounded-full bg-gradient-to-t from-gold via-steel-light to-transparent opacity-0"
+          className="absolute inset-x-0 top-0 h-0 w-[2px] -ml-[2px] bg-accent-stripes opacity-0"
         />
       </div>
     </div>

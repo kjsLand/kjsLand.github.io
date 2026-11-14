@@ -38,9 +38,9 @@ export default function Statline() {
                   <img src={photo} alt={name} className="absolute inset-0 h-full w-full object-cover" />
                 ) : (
                   <div aria-hidden className="absolute inset-0 grid place-items-center">
-                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_35%,rgb(63_84_112/0.55),transparent_70%)]" />
-                    <div className="absolute inset-x-0 bottom-0 h-1/2 bg-[radial-gradient(ellipse_70%_80%_at_50%_100%,rgb(222_160_30/0.18),transparent_70%)]" />
-                    <span className="text-gradient relative font-heading text-[clamp(4rem,16vw,9rem)] font-bold leading-none tracking-tighter">
+                    <div className="absolute inset-0 pattern-hatch" />
+                    <div className="absolute inset-x-0 bottom-0 h-1/3 border-t border-dashed border-fg/30 pattern-dots" />
+                    <span className="relative font-heading text-gold text-[clamp(4rem,16vw,9rem)] font-bold leading-none tracking-tighter">
                       {initials}
                     </span>
                   </div>

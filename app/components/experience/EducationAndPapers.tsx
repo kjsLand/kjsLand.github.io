@@ -53,7 +53,7 @@ function Column({ id, eyebrow, title, children }: { id: string; eyebrow: string;
     <div id={id} className="flex min-w-0 flex-1 scroll-mt-28 flex-col gap-5">
       <Reveal>
         <p className="mb-2 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.25em] text-muted">
-          <span className="h-px w-10 bg-accent-gradient" />
+          <span className="h-px w-10 bg-accent-dash" />
           {eyebrow}
         </p>
         <h2 className="mb-3 text-3xl font-semibold tracking-tight text-fg md:text-4xl">{title}</h2>
@@ -82,7 +82,7 @@ function DegreeCard({ degree: d }: { degree: Degree }) {
         </div>
         {avg !== null && (
           <div className="shrink-0 text-right">
-            <p className="text-gradient text-3xl font-semibold tracking-tight">{avg.toFixed(2)}</p>
+            <p className="text-3xl font-semibold tracking-tight text-gold">{avg.toFixed(2)}</p>
             <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-faint">avg. GPA</p>
           </div>
         )}

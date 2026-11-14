@@ -37,14 +37,9 @@ export default function GpaChart({ terms, id }: { terms: GpaTerm[]; id: string }
       aria-label={`GPA by term: ${terms.map((t) => `${t.term} ${t.gpa.toFixed(2)}`).join(", ")}`}
     >
       <defs>
-        <linearGradient id={`${id}-stroke`} x1="0" x2="1" y1="0" y2="0">
-          <stop offset="0%" stopColor="var(--color-steel-light)" />
-          <stop offset="100%" stopColor="var(--color-gold)" />
-        </linearGradient>
-        <linearGradient id={`${id}-fill`} x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0%" stopColor="var(--color-gold)" stopOpacity="0.22" />
-          <stop offset="100%" stopColor="var(--color-gold)" stopOpacity="0" />
-        </linearGradient>
+        <pattern id={`${id}-fill`} width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+          <line x1="0" y1="0" x2="0" y2="6" stroke="var(--color-gold)" strokeOpacity="0.28" strokeWidth="1.5" />
+        </pattern>
       </defs>
 
       {ticks.map((v) => (
@@ -63,7 +58,7 @@ export default function GpaChart({ terms, id }: { terms: GpaTerm[]; id: string }
             d={line}
             pathLength={1}
             fill="none"
-            stroke={`url(#${id}-stroke)`}
+            stroke="var(--color-gold)"
             strokeWidth={2.5}
             strokeLinecap="round"
             strokeLinejoin="round"

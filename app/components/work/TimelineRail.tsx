@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 
 /**
- * The vertical rail of the work timeline. Its gradient fill grows with scroll so
+ * The vertical rail of the work timeline. Its fill grows with scroll so
  * it "draws" down as you read. It sits in the parent's coordinate space.
  */
 export default function TimelineRail() {
@@ -40,10 +40,10 @@ export default function TimelineRail() {
   }, []);
 
   return (
-    <div ref={railRef} aria-hidden className="absolute bottom-2 left-[7px] top-2 w-px bg-line md:left-[calc(13rem+7px)]">
+    <div ref={railRef} aria-hidden className="absolute bottom-2 left-[7px] top-2 w-px border-l border-dashed border-line md:left-[calc(13rem+7px)]">
       <div
         ref={fillRef}
-        className="h-full w-full origin-top scale-y-0 bg-gradient-to-b from-steel-light via-gold to-gold/0 shadow-[0_0_12px_rgb(222_160_30/0.5)]"
+        className="h-full w-full origin-top scale-y-0 bg-gold"
       />
     </div>
   );

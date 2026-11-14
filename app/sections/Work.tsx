@@ -66,7 +66,7 @@ export default function Work({ index }: { index?: number }) {
                 <ul className="mt-5 space-y-3">
                   {job.highlights.map((h) => (
                     <li key={h} className="flex gap-3 text-[15px] leading-relaxed text-muted">
-                      <span aria-hidden className="mt-[0.6em] h-1 w-3 shrink-0 rounded-full bg-accent-gradient" />
+                      <span aria-hidden className="mt-[0.6em] h-1 w-3 shrink-0 bg-accent-dash" />
                       <span>{h}</span>
                     </li>
                   ))}

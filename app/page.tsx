@@ -1,5 +1,4 @@
 import { projects, socials } from "@/content";
-import Background from "@/app/components/layout/Background";
 import CommandPalette, { type PaletteItem } from "@/app/components/layout/CommandPalette";
 import Footer from "@/app/components/layout/Footer";
 import Navbar from "@/app/components/layout/Navbar";
@@ -42,7 +41,6 @@ export default function HomePage() {
       >
         Skip to content
       </a>
-      <Background />
       <ScrollEffects />
       <Navbar items={pageNav} brand={site.name} current="home" />
       <CommandPalette items={paletteItems} />

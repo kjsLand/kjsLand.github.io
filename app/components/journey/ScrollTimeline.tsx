@@ -145,10 +145,10 @@ export default function ScrollTimeline({ children, count, years }: ScrollTimelin
           className="relative flex w-max items-start gap-6 px-[max(1.25rem,calc((100vw-72rem)/2+2rem))] will-change-transform md:gap-10"
         >
           {/* The rail runs behind every node; the fill grows as stops become active. */}
-          <div data-tl-rail aria-hidden className="absolute inset-x-0 top-[calc(2.5rem+7px)] h-px bg-line">
+          <div data-tl-rail aria-hidden className="absolute inset-x-0 top-[calc(2.5rem+7px)] h-px border-t border-dashed border-line">
             <div
               ref={fillRef}
-              className="h-full w-full origin-left scale-x-0 bg-gradient-to-r from-steel-light via-gold to-gold shadow-[0_0_12px_rgb(222_160_30/0.5)]"
+              className="h-full w-full origin-left scale-x-0 bg-accent-stripes"
             />
           </div>
           {children}
