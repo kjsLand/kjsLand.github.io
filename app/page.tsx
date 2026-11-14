@@ -18,7 +18,7 @@ export default function HomePage() {
   const paletteItems: PaletteItem[] = [
     { label: "Top", group: "Sections", href: "#top" },
     ...nav.map((s) => ({ label: s.label, group: "Sections", href: `#${s.id}` })),
-    { label: "Experience", group: "Pages", hint: "Every role, statline + timeline", href: "/experience" },
+    { label: "Experience", group: "Pages", hint: "Every role", href: "/experience" },
     ...projects.map((p) => ({
       label: p.title,
       group: "Projects",

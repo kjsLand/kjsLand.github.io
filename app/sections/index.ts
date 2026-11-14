@@ -1,6 +1,6 @@
 import type { ComponentType } from "react";
 // Work.tsx and Education.tsx are the old separate sections. Journey.tsx (the horizontal scroll timeline)
-// and Statline.tsx were moved off the home page: work history and the statline live on /experience.
+// and Statline.tsx were moved off the home page: work history and the roles live on /experience.
 // import Work from "./Work";
 // import Education from "./Education";
 import Projects from "./Projects";
