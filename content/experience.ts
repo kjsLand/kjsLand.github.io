@@ -15,9 +15,22 @@ import type { Experience } from "./types";
  *     tech: ["TypeScript", "AWS"],          // optional
  *   },
  *
- * The hero "Work Experiences" stat updates automatically.
+ * It shows up on the Journey timeline, merged with education/degrees by start date.
  */
 export const experience: Experience[] = [
+  {
+    role: "Product Development Engineer",
+    company: "Phenom",
+    companyUrl: "https://www.phenom.com",
+    location: "Horsham, PA",
+    // TODO: set your real start month.
+    start: "Jan 2026",
+    end: "Present",
+    highlights: [
+      // TODO: replace with what you've built and the impact it had.
+      "Building and shipping product features for Phenom's AI-powered talent experience platform.",
+    ],
+  },
   {
     role: "Research Engineer",
     company: "Vogt Labs",

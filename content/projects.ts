@@ -12,7 +12,7 @@ import type { Project } from "./types";
  *     description: "One or two sentences on what it does and why it's interesting.",
  *     tech: ["Next.js", "PostgreSQL"],
  *     links: { repo: "https://github.com/kjsLand/...", live: "https://..." },
- *     hue: 200,            // 0–360, picks the cover color
+ *     hue: 200,            // 0–360, seeds the cover art (which palette color leads)
  *     featured: false,
  *     image: "/projects/my-project.png", // optional screenshot in /public/projects
  *   },

@@ -32,9 +32,9 @@ export default function Work({ index }: { index?: number }) {
               {/* Node on the rail */}
               <span
                 aria-hidden
-                className="absolute left-0 top-2 grid h-[15px] w-[15px] place-items-center rounded-full border border-cyan/50 bg-ink md:left-[13rem]"
+                className="absolute left-0 top-2 grid h-[15px] w-[15px] place-items-center rounded-full border border-gold/50 bg-ink md:left-[13rem]"
               >
-                <span className="h-[5px] w-[5px] rounded-full bg-cyan shadow-[0_0_10px_rgb(34_211_238)]" />
+                <span className="h-[5px] w-[5px] rounded-full bg-gold shadow-[0_0_10px_rgb(222_160_30)]" />
               </span>
 
               {/* Date column */}
@@ -53,7 +53,7 @@ export default function Work({ index }: { index?: number }) {
                       href={job.companyUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-1 transition-colors hover:text-cyan"
+                      className="inline-flex items-center gap-1 transition-colors hover:text-gold"
                     >
                       {job.company} <FiArrowUpRight className="h-4 w-4" aria-hidden />
                     </a>

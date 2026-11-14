@@ -2,14 +2,14 @@ import type { ReactNode } from "react";
 
 type TagProps = {
   children: ReactNode;
-  tone?: "default" | "accent" | "mint";
+  tone?: "default" | "accent" | "gold";
   className?: string;
 };
 
 const tones = {
   default: "border-line bg-white/[0.03] text-muted",
-  accent: "border-violet/30 bg-violet/10 text-violet-200",
-  mint: "border-mint/30 bg-mint/10 text-mint",
+  accent: "border-steel-light/30 bg-steel/25 text-steel-light",
+  gold: "border-gold/30 bg-gold/10 text-gold",
 };
 
 /** A small mono "chip" for tech, tags, and statuses. */

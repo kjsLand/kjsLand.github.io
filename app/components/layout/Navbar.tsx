@@ -4,14 +4,28 @@ import { useEffect, useState } from "react";
 import { FiCommand, FiMenu, FiX } from "react-icons/fi";
 import { openCommandPalette } from "./CommandPalette";
 
-export type NavItem = { id: string; label: string };
+/** `href` defaults to `#id` (an in-page section). Set it to link to another page, e.g. "/experience". */
+export type NavItem = { id: string; label: string; href?: string };
 
 /**
  * Floating glass navbar. It hides on scroll down, reappears on scroll up, and highlights
- * the section in view (scroll-spy). Links come from the section registry.
+ * the section in view (scroll-spy), or the `current` page. Page links live in app/lib/nav.ts.
  */
-export default function Navbar({ items, brand }: { items: NavItem[]; brand: string }) {
-  const [active, setActive] = useState<string>("");
+export default function Navbar({
+  items,
+  brand,
+  brandHref = "#top",
+  current,
+}: {
+  items: NavItem[];
+  brand: string;
+  /** Where the monogram links. On sub-pages, point it at "/". */
+  brandHref?: string;
+  /** Force an item to show as active (for a page link rather than a scroll-spied section). */
+  current?: string;
+}) {
+  const [spied, setActive] = useState<string>("");
+  const active = current ?? spied;
   const [hidden, setHidden] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -57,7 +71,7 @@ export default function Navbar({ items, brand }: { items: NavItem[]; brand: stri
           scrolled ? "shadow-[0_10px_40px_-10px_rgb(0_0_0/0.8)]" : ""
         }`}
       >
-        <a href="#top" className="flex items-center gap-2 font-semibold tracking-tight text-fg">
+        <a href={brandHref} className="flex items-center gap-2 font-semibold tracking-tight text-fg">
           <span className="grid h-7 w-7 place-items-center rounded-full bg-accent-gradient font-mono text-[11px] font-bold text-ink">
             {brand
               .split(" ")
@@ -71,7 +85,7 @@ export default function Navbar({ items, brand }: { items: NavItem[]; brand: stri
           {items.map((item) => (
             <li key={item.id}>
               <a
-                href={`#${item.id}`}
+                href={item.href ?? `#${item.id}`}
                 aria-current={active === item.id ? "true" : undefined}
                 className={`relative rounded-full px-3.5 py-1.5 text-sm transition-colors ${
                   active === item.id ? "bg-white/[0.08] text-fg" : "text-muted hover:text-fg"
@@ -111,7 +125,7 @@ export default function Navbar({ items, brand }: { items: NavItem[]; brand: stri
             {items.map((item) => (
               <li key={item.id}>
                 <a
-                  href={`#${item.id}`}
+                  href={item.href ?? `#${item.id}`}
                   onClick={() => setOpen(false)}
                   className={`block rounded-2xl px-4 py-3 text-base ${
                     active === item.id ? "bg-white/[0.08] text-fg" : "text-muted"

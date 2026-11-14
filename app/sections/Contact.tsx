@@ -1,44 +1,21 @@
-import { FiArrowUpRight, FiMail } from "react-icons/fi";
+import { FiArrowUpRight } from "react-icons/fi";
 import { site, socials } from "@/content";
 import CopyEmail from "@/app/components/contact/CopyEmail";
-import MagneticLink from "@/app/components/ui/MagneticLink";
 import Reveal from "@/app/components/ui/Reveal";
 import SocialIcon from "@/app/components/ui/SocialIcon";
 import SpotlightCard from "@/app/components/ui/SpotlightCard";
 
 export default function Contact({ index }: { index?: number }) {
   return (
-    <section id="contact" className="relative py-24 md:py-36">
+    <section id="contact" className="relative py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-5 md:px-8">
-        <Reveal>
-          <div className="conic-border relative overflow-hidden rounded-[2rem] bg-ink-2/80 px-6 py-16 text-center md:px-16 md:py-24">
-            <div
-              aria-hidden
-              className="absolute inset-0 -z-10 opacity-60"
-              style={{
-                background:
-                  "radial-gradient(50% 60% at 50% 0%, rgb(139 92 246 / 0.25), transparent 70%), radial-gradient(40% 50% at 50% 110%, rgb(34 211 238 / 0.18), transparent 70%)",
-              }}
-            />
-            <p className="flex items-center justify-center gap-3 font-mono text-xs uppercase tracking-[0.25em] text-muted">
-              {index !== undefined && <span className="text-cyan">{String(index).padStart(2, "0")}</span>}
-              <span className="h-px w-10 bg-accent-gradient" />
-              Contact
-            </p>
-            <h2 className="mx-auto mt-6 max-w-3xl text-4xl font-semibold tracking-tight text-fg md:text-7xl">
-              Let&apos;s build something{" "}
-              <span className="text-gradient pr-1 font-serif font-normal italic">meaningful.</span>
-            </h2>
-            <p className="mx-auto mt-6 max-w-lg text-muted md:text-lg">
-              Whether it&apos;s a role, a research collaboration, or a side project, my inbox is open.
-            </p>
-            <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <MagneticLink href={`mailto:${site.email}`}>
-                <FiMail aria-hidden /> Say hello
-              </MagneticLink>
-              <CopyEmail email={site.email} />
-            </div>
-          </div>
+        <Reveal className="flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
+          <p className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.25em] text-muted">
+            {index !== undefined && <span className="text-gold">{String(index).padStart(2, "0")}</span>}
+            <span className="h-px w-10 bg-accent-gradient" />
+            Contact
+          </p>
+          <CopyEmail email={site.email} />
         </Reveal>
 
         <ul className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -50,7 +27,7 @@ export default function Contact({ index }: { index?: number }) {
                   {...(s.icon === "email" ? {} : { target: "_blank", rel: "noreferrer" })}
                   className="group flex h-full items-center gap-4 p-5"
                 >
-                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-line bg-white/[0.03] text-muted transition-colors group-hover:border-cyan/30 group-hover:text-cyan">
+                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-line bg-white/[0.03] text-muted transition-colors group-hover:border-gold/30 group-hover:text-gold">
                     <SocialIcon icon={s.icon} />
                   </span>
                   <span className="min-w-0">

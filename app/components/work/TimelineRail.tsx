@@ -43,7 +43,7 @@ export default function TimelineRail() {
     <div ref={railRef} aria-hidden className="absolute bottom-2 left-[7px] top-2 w-px bg-line md:left-[calc(13rem+7px)]">
       <div
         ref={fillRef}
-        className="h-full w-full origin-top scale-y-0 bg-gradient-to-b from-violet via-cyan to-cyan/0 shadow-[0_0_12px_rgb(34_211_238/0.6)]"
+        className="h-full w-full origin-top scale-y-0 bg-gradient-to-b from-steel-light via-gold to-gold/0 shadow-[0_0_12px_rgb(222_160_30/0.5)]"
       />
     </div>
   );

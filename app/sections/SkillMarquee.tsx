@@ -17,7 +17,7 @@ export default function SkillMarquee() {
           >
             <SkillIcon name={skill} className="h-4 w-4 text-faint" />
             {skill}
-            <span className="ml-6 text-violet/60">✦</span>
+            <span className="ml-6 text-gold/60">✦</span>
           </li>
         ))}
       </ul>

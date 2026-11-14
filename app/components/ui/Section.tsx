@@ -39,14 +39,14 @@ export default function Section({
           <div
             aria-hidden
             className="ghost-drift pointer-events-none absolute -top-10 left-0 -z-10 select-none whitespace-nowrap font-sans text-[18vw] font-bold leading-none tracking-tighter text-transparent opacity-60 md:-top-16 md:text-[11rem]"
-            style={{ WebkitTextStroke: "1px rgb(255 255 255 / 0.05)" }}
+            style={{ WebkitTextStroke: "1px rgb(255 237 203 / 0.05)" }}
           >
             {ghost ?? eyebrow}
           </div>
 
           <Reveal>
             <p className="mb-5 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.25em] text-muted">
-              {index !== undefined && <span className="text-cyan">{String(index).padStart(2, "0")}</span>}
+              {index !== undefined && <span className="text-gold">{String(index).padStart(2, "0")}</span>}
               <span className="h-px w-10 bg-accent-gradient" />
               {eyebrow}
             </p>

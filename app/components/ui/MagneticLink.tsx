@@ -12,7 +12,7 @@ type MagneticLinkProps = {
 
 const variants = {
   primary:
-    "bg-fg text-ink hover:shadow-[0_0_40px_-6px_rgb(139_92_246/0.7)]",
+    "bg-fg text-ink hover:shadow-[0_0_40px_-6px_rgb(222_160_30/0.55)]",
   ghost:
     "border border-line bg-white/[0.03] text-fg hover:border-white/20 hover:bg-white/[0.06]",
 };

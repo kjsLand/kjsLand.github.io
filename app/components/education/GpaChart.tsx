@@ -38,18 +38,18 @@ export default function GpaChart({ terms, id }: { terms: GpaTerm[]; id: string }
     >
       <defs>
         <linearGradient id={`${id}-stroke`} x1="0" x2="1" y1="0" y2="0">
-          <stop offset="0%" stopColor="var(--color-violet)" />
-          <stop offset="100%" stopColor="var(--color-cyan)" />
+          <stop offset="0%" stopColor="var(--color-steel-light)" />
+          <stop offset="100%" stopColor="var(--color-gold)" />
         </linearGradient>
         <linearGradient id={`${id}-fill`} x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0%" stopColor="var(--color-violet)" stopOpacity="0.28" />
-          <stop offset="100%" stopColor="var(--color-violet)" stopOpacity="0" />
+          <stop offset="0%" stopColor="var(--color-gold)" stopOpacity="0.22" />
+          <stop offset="100%" stopColor="var(--color-gold)" stopOpacity="0" />
         </linearGradient>
       </defs>
 
       {ticks.map((v) => (
         <g key={v}>
-          <line x1={PAD.l} x2={W - PAD.r} y1={y(v)} y2={y(v)} stroke="rgb(255 255 255 / 0.06)" strokeDasharray="2 4" />
+          <line x1={PAD.l} x2={W - PAD.r} y1={y(v)} y2={y(v)} stroke="rgb(255 237 203 / 0.06)" strokeDasharray="2 4" />
           <text x={PAD.l - 10} y={y(v)} textAnchor="end" dominantBaseline="middle" className="fill-faint font-mono text-[11px]">
             {v.toFixed(1)}
           </text>
@@ -75,7 +75,7 @@ export default function GpaChart({ terms, id }: { terms: GpaTerm[]; id: string }
       {terms.map((t, i) => (
         <g key={t.term} className="chart-dot group" style={{ "--i": i } as CSSProperties}>
           <circle cx={x(i)} cy={y(t.gpa)} r={14} fill="transparent" />
-          <circle cx={x(i)} cy={y(t.gpa)} r={5} fill="var(--color-ink)" stroke="var(--color-cyan)" strokeWidth={2} />
+          <circle cx={x(i)} cy={y(t.gpa)} r={5} fill="var(--color-ink)" stroke="var(--color-gold)" strokeWidth={2} />
           <text
             x={x(i)}
             y={y(t.gpa) - 14}

@@ -34,20 +34,20 @@ export default function Papers({ index }: { index?: number }) {
                 <div className="flex items-center gap-3 md:block">
                   <p className="font-serif text-5xl italic leading-none text-fg/90 md:text-6xl">{p.year}</p>
                   <div className="flex flex-wrap gap-2 md:mt-5">
-                    <Tag tone="mint">{p.status}</Tag>
+                    <Tag tone="gold">{p.status}</Tag>
                     {p.venue && <Tag>{p.venue}</Tag>}
                   </div>
                 </div>
 
                 <div>
                   {lead && (
-                    <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.2em] text-cyan">Lead author</p>
+                    <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.2em] text-gold">Lead author</p>
                   )}
                   <h3 className="text-xl font-semibold leading-snug tracking-tight text-fg md:text-2xl">{p.title}</h3>
                   <p className="mt-3 text-sm text-muted">
                     {p.authors.map((a, j) => (
                       <span key={a}>
-                        <span className={a === site.name ? "font-medium text-fg underline decoration-violet/60 underline-offset-4" : ""}>
+                        <span className={a === site.name ? "font-medium text-fg underline decoration-gold/60 underline-offset-4" : ""}>
                           {a}
                         </span>
                         {j < p.authors.length - 1 && ", "}
