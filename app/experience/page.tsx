@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FiArrowLeft, FiArrowUpRight, FiMail } from "react-icons/fi";
-import { experience, site, socials, type Experience } from "@/content";
+import { experience, papers, site, socials, type Experience } from "@/content";
 import { duration, monthNumber, pad2 } from "@/app/lib/format";
 import { sections } from "@/app/sections";
 import { pageNav } from "@/app/lib/nav";
@@ -10,6 +10,7 @@ import CommandPalette, { type PaletteItem } from "@/app/components/layout/Comman
 import Footer from "@/app/components/layout/Footer";
 import Navbar from "@/app/components/layout/Navbar";
 import ScrollEffects from "@/app/components/layout/ScrollEffects";
+import EducationAndPapers from "@/app/components/experience/EducationAndPapers";
 import ProjectCover from "@/app/components/projects/ProjectCover";
 import Reveal from "@/app/components/ui/Reveal";
 import Tag from "@/app/components/ui/Tag";
@@ -36,6 +37,8 @@ export default function ExperiencePage() {
     { label: "Experience", group: "Pages", href: "#top" },
     ...homeNav.map((s) => ({ label: s.label, group: "Home sections", href: `/#${s.id}` })),
     ...experience.map((j, i) => ({ label: j.company, group: "Roles", hint: j.role, href: `#role-${i + 1}` })),
+    { label: "Education", group: "Sections", href: "#education" },
+    ...papers.map((p) => ({ label: p.title, group: "Papers", hint: String(p.year), href: "#papers" })),
     ...socials.map((s) => ({
       label: s.label,
       group: "Links",
@@ -88,10 +91,13 @@ export default function ExperiencePage() {
           ))}
         </section>
 
+        {/* ── Education + papers, side by side ──────────────────── */}
+        <EducationAndPapers />
+
         {/* ── Outro ─────────────────────────────────────────────── */}
         <section className="mx-auto mt-32 flex max-w-6xl flex-col items-start justify-between gap-6 px-5 pb-28 md:mt-48 md:flex-row md:items-center md:px-8">
           <p className="max-w-lg text-2xl font-semibold tracking-tight text-fg md:text-3xl">
-            Want the rest of the story? <span className="text-muted">Projects, papers, and skills live on the home page.</span>
+            Want the rest of the story? <span className="text-muted">Projects and skills live on the home page.</span>
           </p>
           <div className="flex flex-wrap gap-3">
             <Link
