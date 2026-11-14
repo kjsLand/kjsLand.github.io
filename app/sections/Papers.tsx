@@ -32,7 +32,7 @@ export default function Papers({ index }: { index?: number }) {
             <Reveal key={p.title} delay={i * 100}>
               <SpotlightCard as="article" className="grid gap-6 p-6 md:grid-cols-[9rem_1fr] md:gap-10 md:p-9">
                 <div className="flex items-center gap-3 md:block">
-                  <p className="font-serif text-5xl italic leading-none text-fg/90 md:text-6xl">{p.year}</p>
+                  <p className="font-heading text-5xl font-semibold leading-none text-fg/90 md:text-6xl">{p.year}</p>
                   <div className="flex flex-wrap gap-2 md:mt-5">
                     <Tag tone="gold">{p.status}</Tag>
                     {p.venue && <Tag>{p.venue}</Tag>}

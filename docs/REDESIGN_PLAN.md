@@ -23,7 +23,7 @@ Ground rules (from the research below):
 | Element | Before | Plan |
 |---|---|---|
 | Design tokens | Mixed light and dark colors, leftover create-next-app CSS, Tailwind v3 directives in a v4 project | One token set in `@theme` (ink, surface, line, fg, muted, violet, cyan) in `globals.css`. Remove the unused `tailwind_config.ts`. |
-| Typography | Inter, plus an Arial override in the body | **Geist** for UI, **Geist Mono** for labels and dates (a developer feel), and **Instrument Serif italic** for one accent word per heading (an editorial contrast). |
+| Typography | Inter, plus an Arial override in the body | Boxy, squared-off type: **Chakra Petch** for UI and body text, **Oxanium** for display headings and the gold accent word in each heading, and **JetBrains Mono** for labels and dates (a developer feel). |
 | Background | Flat black | Fixed aurora blobs (blurred radial gradients) that drift slowly and move with scroll parallax, a masked dot grid, and a film-grain overlay (an SVG `feTurbulence` noise tile). |
 | Scroll progress | None | A 2px gradient bar at the top, driven by one rAF scroll listener. That listener also publishes `--scroll-y` for the CSS parallax. |
 | Reveals | None | A `<Reveal>` component that uses `IntersectionObserver` for a fade, rise, and un-blur, with stagger delays. A `<noscript>` fallback keeps content visible without JavaScript. |
@@ -80,7 +80,7 @@ Ground rules (from the research below):
 ## Papers
 
 - **Before:** white cards and placeholder `xxxx` links.
-- **Plan:** publication-style entries with a large serif year, status and venue pills, and authors
+- **Plan:** publication-style entries with a large display-face year, status and venue pills, and authors
   listed with Kevin highlighted. A "Lead author" badge is derived from author order. Each entry
   includes an abstract and tags. Links render only when a real URL exists.
 

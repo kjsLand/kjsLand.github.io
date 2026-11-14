@@ -10,16 +10,16 @@ export const site = {
   description:
     "Kevin Land — software engineer working across full-stack development, AI, and quantum computing.",
   /** Small pill above the name in the hero. */
-  kicker: "Full-Stack · AI · Quantum Computing",
+  kicker: "kevin.js.land@gmail.com",
   /** Cycles in the hero typewriter. Order matters: the first one shows first. */
   roles: [
     "Software Engineer",
     "Full-Stack Developer",
-    "Quantum Computing Researcher",
-    "Research Engineer",
+    "Integrations",
+    "Information Retrieval",
   ],
   tagline:
-    "I'm a passionate developer who strives to have real-world impact in areas such as full-stack development, AI, and quantum computing.",
+    "Welcome to my area of the internet. Make yourself at home and click a bunch of links.",
   /**
    * Optional green "status" dot in the hero, e.g. "Open to new roles".
    * Leave as undefined to hide it.
@@ -42,12 +42,6 @@ export const socials: SocialLink[] = [
     handle: "in/kevin-land-401b88250",
     href: "https://www.linkedin.com/in/kevin-land-401b88250",
     icon: "linkedin",
-  },
-  {
-    label: "Email",
-    handle: site.email,
-    href: `mailto:${site.email}`,
-    icon: "email",
   },
   {
     label: "Blog",

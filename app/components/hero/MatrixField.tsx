@@ -38,7 +38,7 @@ export default function MatrixField({ className = "" }: { className?: string }) 
 
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const fontFamily =
-      getComputedStyle(document.documentElement).getPropertyValue("--font-geist-mono").trim() || "monospace";
+      getComputedStyle(document.documentElement).getPropertyValue("--font-mono-face").trim() || "monospace";
 
     let w = 0;
     let h = 0;

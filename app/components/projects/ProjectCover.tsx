@@ -66,7 +66,7 @@ export default function ProjectCover({ project }: { project: Pick<Project, "titl
       {!project.image && (
         <span
           aria-hidden
-          className="absolute bottom-3 left-5 select-none font-serif text-7xl italic leading-none text-cream/80 mix-blend-overlay md:text-8xl"
+          className="absolute bottom-3 left-5 select-none font-heading text-7xl font-bold leading-none text-cream/80 mix-blend-overlay md:text-8xl"
         >
           {initials}
         </span>

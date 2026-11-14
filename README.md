@@ -38,7 +38,7 @@ The hero stats (work experiences, projects, degrees, papers) are **counted from 
 
 ### Reusable building blocks (`app/components/ui`)
 
-- `Section`: section shell with an eyebrow, a heading with a serif accent word, and a drifting ghost title
+- `Section`: section shell with an eyebrow, a heading with a gold accent word in the display face, and a drifting ghost title
 - `Reveal`: fades and lifts its children in when scrolled into view (`delay` staggers them)
 - `SpotlightCard`: card with a glow and border that follow the cursor
 - `Tag`: mono chip (`tone="default" | "accent" | "mint"`)

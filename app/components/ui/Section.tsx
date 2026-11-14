@@ -8,7 +8,7 @@ type SectionProps = {
   eyebrow: string;
   /** Plain text for the heading. */
   title: string;
-  /** Optional word appended in serif italic in the gold accent. */
+  /** Optional word appended in the display face in the gold accent. */
   accent?: string;
   description?: string;
   /** Huge outlined word that drifts behind the heading. Defaults to the eyebrow. */
@@ -57,7 +57,7 @@ export default function Section({
               {accent && (
                 <>
                   {" "}
-                  <span className="pr-1 font-serif font-normal italic text-gold">{accent}</span>
+                  <span className="pr-1 font-heading text-gold">{accent}</span>
                 </>
               )}
             </h2>

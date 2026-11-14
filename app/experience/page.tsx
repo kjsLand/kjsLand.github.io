@@ -10,7 +10,7 @@ import Footer from "@/app/components/layout/Footer";
 import Navbar from "@/app/components/layout/Navbar";
 import ScrollEffects from "@/app/components/layout/ScrollEffects";
 import EducationAndPapers from "@/app/components/experience/EducationAndPapers";
-import ProjectCover from "@/app/components/projects/ProjectCover";
+import ExperienceCover from "@/app/components/experience/ExperienceCover";
 import Reveal from "@/app/components/ui/Reveal";
 import Tag from "@/app/components/ui/Tag";
 
@@ -18,13 +18,6 @@ export const metadata: Metadata = {
   title: `Experience — ${site.name}`,
   description: `Where ${site.firstName} has worked and studied: every role, start to finish.`,
 };
-
-/** Stable 0–360 hue from a name, so each company gets its own cover art. */
-function hueFor(name: string) {
-  let h = 0;
-  for (const c of name) h = (h * 31 + c.charCodeAt(0)) % 360;
-  return h;
-}
 
 const domainOf = (url?: string) => (url ? url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "") : undefined);
 const yearOf = (s: string) => Math.floor((monthNumber(s) ?? 0) / 12);
@@ -71,7 +64,7 @@ export default function ExperiencePage() {
           <Reveal delay={80}>
             <h1 className="max-w-4xl text-5xl font-semibold tracking-tight text-fg md:text-7xl">
               Where I&apos;ve worked,{" "}
-              <span className="pr-1 font-serif font-normal italic text-gold">what I&apos;ve built.</span>
+              <span className="pr-1 font-heading text-gold">what I&apos;ve built.</span>
             </h1>
           </Reveal>
           <Reveal delay={160}>
@@ -138,13 +131,13 @@ function RoleRow({ job, index }: { job: Experience; index: number }) {
               {domain ?? job.company.toLowerCase().replace(/\s+/g, "")}
             </span>
           </div>
-          <div className="relative aspect-[16/10]">
-            <ProjectCover project={{ title: job.company, hue: hueFor(job.company) }} />
-            <div className="absolute left-6 top-6 right-6 md:left-8 md:top-8">
+          <div className="bg-ink-2">
+            <div className="px-6 pb-6 pt-6 md:px-8 md:pb-8 md:pt-8">
               <p className="font-heading text-3xl font-bold tracking-tight text-fg md:text-4xl">{job.company}</p>
               <p className="mt-1 h-0.5 w-12 rounded-full bg-gold/80" />
               <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.15em] text-cream/70">{job.role}</p>
             </div>
+            <ExperienceCover seed={job.company} />
           </div>
         </div>
       </Reveal>

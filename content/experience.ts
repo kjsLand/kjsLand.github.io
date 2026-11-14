@@ -23,8 +23,7 @@ export const experience: Experience[] = [
     company: "Phenom",
     companyUrl: "https://www.phenom.com",
     location: "Horsham, PA",
-    // TODO: set your real start month.
-    start: "Jan 2026",
+    start: "Aug 2026",
     end: "Present",
     highlights: [
       // TODO: replace with what you've built and the impact it had.

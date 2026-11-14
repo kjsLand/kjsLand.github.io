@@ -111,7 +111,7 @@ function PaperCard({ paper: p }: { paper: Paper }) {
   return (
     <SpotlightCard as="article" className="p-6 md:p-7">
       <div className="flex flex-wrap items-center gap-2">
-        <span className="mr-1 font-serif text-2xl italic leading-none text-fg/90">{p.year}</span>
+        <span className="mr-1 font-heading text-2xl font-semibold leading-none text-fg/90">{p.year}</span>
         <Tag tone="gold">{p.status}</Tag>
         {p.venue && <Tag>{p.venue}</Tag>}
         {lead && (
