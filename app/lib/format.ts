@@ -1,3 +1,5 @@
+import type { Degree } from "@/content";
+
 const MONTHS = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
 
 /** "May 2025" → { y: 2025, m: 4 }. "Present" → today. Returns null if it can't parse. */
@@ -10,6 +12,19 @@ function parseMonthYear(s: string): { y: number; m: number } | null {
   if (!match) return null;
   const m = MONTHS.indexOf(match[1].toLowerCase());
   return m === -1 ? null : { y: Number(match[2]), m };
+}
+
+const SEASONS: Record<string, number> = { spring: 0, summer: 4, fall: 7, autumn: 7, winter: 11 };
+
+/**
+ * Sortable month number for "May 2025", "Fall 2024", or "Present" (year * 12 + month).
+ * Returns null if it can't parse.
+ */
+export function monthNumber(s: string): number | null {
+  const season = s.trim().match(/^(spring|summer|fall|autumn|winter)\s+(\d{4})$/i);
+  if (season) return Number(season[2]) * 12 + SEASONS[season[1].toLowerCase()];
+  const d = parseMonthYear(s);
+  return d ? d.y * 12 + d.m : null;
 }
 
 /** Human duration between two month strings, inclusive: "8 mos", "1 yr 1 mo". */
@@ -29,3 +44,14 @@ export function duration(start: string, end: string): string | null {
 
 /** Index-padded label, e.g. 3 → "03". */
 export const pad2 = (n: number) => String(n).padStart(2, "0");
+
+/** A degree's start, end, and display label, from `timeline` or else its first and last term. */
+export function degreeRange(d: Degree) {
+  if (d.timeline) {
+    const [start = "", end = ""] = d.timeline.split(/\s*[–—-]\s*/);
+    return { start, end, label: d.timeline };
+  }
+  const start = d.terms[0]?.term ?? "";
+  const end = d.terms[d.terms.length - 1]?.term ?? "";
+  return { start, end, label: start === end ? start : `${start} – ${end}` };
+}

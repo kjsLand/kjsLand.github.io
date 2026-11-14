@@ -2,18 +2,21 @@
 
 /* ───────────────────────────── Design tokens ─────────────────────────────
    Change the palette here and the whole site follows. Each token becomes a
-   Tailwind utility, e.g. --color-violet → bg-violet / text-violet / border-violet. */
+   Tailwind utility, e.g. --color-gold → bg-gold / text-gold / border-gold. */
 @theme {
-  --color-ink: #06070b;
-  --color-ink-2: #0c0e16;
-  --color-fg: #e9ebf3;
-  --color-muted: #8d93a8;
-  --color-faint: #5b6075;
-  --color-line: rgb(255 255 255 / 0.08);
-  --color-surface: rgb(255 255 255 / 0.025);
-  --color-violet: #8b5cf6;
-  --color-cyan: #22d3ee;
-  --color-mint: #4ade80;
+  /* Palette: cream #ffedcb · gold #dea01e · steel #3f5470 */
+  --color-ink: #0a0d12;
+  --color-ink-2: #121821;
+  --color-fg: #ffedcb;
+  --color-muted: #a89c86;
+  --color-faint: #686358;
+  --color-line: rgb(255 237 203 / 0.09);
+  --color-surface: rgb(255 237 203 / 0.03);
+  --color-cream: #ffedcb;
+  --color-gold: #dea01e;
+  --color-steel: #3f5470;
+  /* Lighter steel for text and thin strokes on the dark background. */
+  --color-steel-light: #8fa3c0;
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 
@@ -23,9 +26,9 @@
 }
 
 @theme inline {
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
-  --font-serif: var(--font-instrument-serif), ui-serif, Georgia, serif;
+  --font-sans: var(--font-sans-face), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono-face), ui-monospace, SFMono-Regular, monospace;
+  --font-heading: var(--font-display-face), var(--font-sans-face), ui-sans-serif, sans-serif;
 }
 
 /* ───────────────────────────── Base ───────────────────────────── */
@@ -52,13 +55,13 @@ body {
 }
 
 ::selection {
-  background: rgb(139 92 246 / 0.45);
-  color: white;
+  background: rgb(222 160 30 / 0.4);
+  color: var(--color-cream);
 }
 
 @layer base {
   :focus-visible {
-    outline: 2px solid var(--color-cyan);
+    outline: 2px solid var(--color-gold);
     outline-offset: 3px;
   }
 }
@@ -76,28 +79,36 @@ body::after {
 }
 
 /* ───────────────────────────── Utilities ───────────────────────────── */
-@utility text-gradient {
-  background-image: linear-gradient(100deg, #c4b5fd 0%, var(--color-violet) 35%, var(--color-cyan) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+/* Patterns. Everything decorative on the site is a hard-edged SVG tile — no gradients anywhere.
+   Colors are baked into the tiles (data URIs can't read CSS variables): cream 255 237 203, gold 222 160 30. */
+
+/* Dot lattice. */
+@utility pattern-dots {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Ccircle cx='2' cy='2' r='1' fill='rgb(255,237,203)' fill-opacity='0.16'/%3E%3C/svg%3E");
 }
 
-@utility bg-accent-gradient {
-  background-image: linear-gradient(100deg, var(--color-violet), var(--color-cyan));
+/* Fine 45° hatch. */
+@utility pattern-hatch {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M-2 2l4-4M0 8l8-8M6 10l4-4' stroke='rgb(255,237,203)' stroke-opacity='0.07' stroke-width='1'/%3E%3C/svg%3E");
 }
 
-@utility mask-fade-x {
-  mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+/* Gold dashes: section-label rules, bullets and the reading-progress bar. */
+@utility bg-accent-dash {
+  background-color: transparent;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='2'%3E%3Crect width='4' height='2' fill='rgb(222,160,30)'/%3E%3C/svg%3E");
+  background-size: 6px 100%;
+  background-repeat: repeat-x;
 }
 
-@utility mask-radial {
-  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 30%, transparent 75%);
+/* Diagonal gold stripes, for filled bars (progress, timeline rails). */
+@utility bg-accent-stripes {
+  background-color: rgb(222 160 30 / 0.35);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='6'%3E%3Cpath d='M-1.5 1.5l3-3M0 6l6-6M4.5 7.5l3-3' stroke='rgb(222,160,30)' stroke-width='2'/%3E%3C/svg%3E");
 }
 
 /* Glass panel used by the navbar, palette, and stat tiles. */
 @utility glass {
-  background: rgb(14 16 26 / 0.6);
+  background: rgb(16 21 30 / 0.65);
   border: 1px solid var(--color-line);
   backdrop-filter: blur(14px) saturate(140%);
   -webkit-backdrop-filter: blur(14px) saturate(140%);
@@ -105,40 +116,35 @@ body::after {
 
 @layer components {
 /* ───────────────────────────── Spotlight cards ─────────────────────────────
-   SpotlightCard.tsx writes the pointer position to --mx/--my. A soft glow
-   follows the cursor and the border lights up near it. */
+   Flat surface. On hover a hatch pattern fades in and the border turns gold.
+   SpotlightCard.tsx writes the pointer position to --mx/--my, which nudges the
+   hatch so it drifts slightly with the cursor. */
 .spotlight {
   position: relative;
   isolation: isolate;
   border-radius: 1.25rem;
-  background: linear-gradient(180deg, rgb(255 255 255 / 0.035), rgb(255 255 255 / 0.015));
+  background: rgb(255 237 203 / 0.025);
   border: 1px solid var(--color-line);
   transition: border-color 0.4s, transform 0.5s var(--ease-out-expo), background 0.4s;
 }
-.spotlight::before,
-.spotlight::after {
+.spotlight::before {
   content: "";
   position: absolute;
-  inset: -1px;
+  inset: 0;
+  z-index: -1;
   border-radius: inherit;
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.4s;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10'%3E%3Cpath d='M-2.5 2.5l5-5M0 10l10-10M7.5 12.5l5-5' stroke='rgb(222,160,30)' stroke-opacity='0.11' stroke-width='1'/%3E%3C/svg%3E");
+  background-position: calc(var(--mx, 0px) * 0.04) calc(var(--my, 0px) * 0.04);
 }
-.spotlight::before {
-  z-index: -1;
-  background: radial-gradient(500px circle at var(--mx, 50%) var(--my, 50%), rgb(139 92 246 / 0.12), transparent 45%);
-}
-.spotlight::after {
-  padding: 1px;
-  background: radial-gradient(300px circle at var(--mx, 50%) var(--my, 50%), rgb(34 211 238 / 0.65), rgb(139 92 246 / 0.35) 40%, transparent 70%);
-  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  mask-composite: exclude;
-  -webkit-mask-composite: xor;
+.spotlight:hover,
+.spotlight:focus-within {
+  border-color: rgb(222 160 30 / 0.4);
 }
 .spotlight:hover::before,
-.spotlight:hover::after,
-.spotlight:focus-within::after {
+.spotlight:focus-within::before {
   opacity: 1;
 }
 
@@ -266,36 +272,9 @@ body::after {
   55% { transform: scaleY(1); transform-origin: bottom; }
   100% { transform: scaleY(0); transform-origin: bottom; }
 }
-@keyframes border-spin {
-  to { --angle: 360deg; }
-}
 @keyframes pulse-ring {
-  0% { box-shadow: 0 0 0 0 rgb(74 222 128 / 0.6); }
-  100% { box-shadow: 0 0 0 10px rgb(74 222 128 / 0); }
-}
-
-/* Animated conic border for the contact CTA. */
-@property --angle {
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
-}
-.conic-border {
-  position: relative;
-  isolation: isolate;
-}
-.conic-border::before {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  z-index: -1;
-  border-radius: inherit;
-  padding: 1px;
-  background: conic-gradient(from var(--angle), transparent 0deg, var(--color-violet) 70deg, var(--color-cyan) 140deg, transparent 220deg);
-  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  mask-composite: exclude;
-  -webkit-mask-composite: xor;
-  animation: border-spin 6s linear infinite;
+  0% { box-shadow: 0 0 0 0 rgb(222 160 30 / 0.6); }
+  100% { box-shadow: 0 0 0 10px rgb(222 160 30 / 0); }
 }
 
 /* ───────────────────────────── Reduced motion ─────────────────────────────

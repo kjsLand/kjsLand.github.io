@@ -26,7 +26,7 @@ export default function CopyEmail({ email }: { email: string }) {
       {email}
       <span
         className={`grid h-8 w-8 place-items-center rounded-full transition-colors ${
-          copied ? "bg-mint text-ink" : "bg-white/[0.08] text-muted group-hover:text-fg"
+          copied ? "bg-gold text-ink" : "bg-white/[0.08] text-muted group-hover:text-fg"
         }`}
       >
         {copied ? <FiCheck aria-hidden /> : <FiCopy aria-hidden />}

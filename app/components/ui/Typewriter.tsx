@@ -33,7 +33,7 @@ export default function Typewriter({ words, className = "" }: { words: readonly 
       <span className="sr-only">{words.join(", ")}</span>
       <span aria-hidden>
         {text}
-        <span className="ml-0.5 inline-block h-[1em] w-[0.5ch] translate-y-[0.15em] animate-blink bg-cyan" />
+        <span className="ml-0.5 inline-block h-[1em] w-[0.5ch] translate-y-[0.15em] animate-blink bg-gold" />
       </span>
     </span>
   );

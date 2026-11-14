@@ -1,8 +1,7 @@
 import type { Project } from "./types";
 
 /**
- * Projects, in the order they appear. Featured projects get wider tiles, and the
- * grid rebalances itself automatically no matter how many you add.
+ * Projects, in the order they appear in the home page grid (every tile is the same size).
  *
  * Template:
  *   {
@@ -12,9 +11,9 @@ import type { Project } from "./types";
  *     description: "One or two sentences on what it does and why it's interesting.",
  *     tech: ["Next.js", "PostgreSQL"],
  *     links: { repo: "https://github.com/kjsLand/...", live: "https://..." },
- *     hue: 200,            // 0–360, picks the cover color
+ *     hue: 200,            // 0–360, seeds the cover art (which palette color leads)
  *     featured: false,
- *     image: "/projects/my-project.png", // optional screenshot in /public/projects
+ *     image: "/projects/my-project.png", // optional image in /public/projects (screenshot or illustration, ~2:1)
  *   },
  */
 export const projects: Project[] = [
@@ -22,29 +21,49 @@ export const projects: Project[] = [
     title: "Token Watcher",
     kind: "Chrome Extension",
     description:
-      "Counts the tokens of prompts, responses, and files when developing with browser LLM tools — something they don't support natively.",
-    tech: ["JavaScript", "Chrome Extension", "LLM Tooling"],
-    links: { repo: "https://github.com/kjsLand/token_watcher" },
+      "A side panel that counts the tokens in prompts, responses, and attached or downloaded files on Claude, ChatGPT, Gemini, and DeepSeek — numbers the chat apps don't show on free and pro plans.",
+    tech: ["JavaScript", "Chrome MV3", "tiktoken (WASM)", "JSZip"],
+    links: {
+      repo: "https://github.com/kjsLand/token_watcher",
+      live: "https://chromewebstore.google.com/detail/llm-token-watcher/pmojbcgdepabgeiedlibmolidajjclkm",
+    },
     hue: 22,
+    image: "/projects/token-watcher.svg",
+    featured: true,
+  },
+  {
+    title: "Algo-Rythm",
+    kind: "Desktop App & Plugin",
+    description:
+      "Generates song starters — chord progressions, guitar voicings, strum patterns, and a hook — and exports them as MIDI, tab, or MusicXML to give producers a jumping-off point for a beat. Runs as a desktop app, a CLI, and a VST3/AU plugin.",
+    tech: ["C++17", "JUCE", "CMake", "MIDI", "Python"],
+    links: { repo: "https://github.com/kjsLand/Algo-Rythm" },
+    hue: 270,
+    image: "/projects/algo-rythm.svg",
     featured: true,
   },
   {
     title: "The Scribbler",
     kind: "Chrome Extension",
     description:
-      "Finds the canvas in Jackbox's TKO browser game and draws any given image using only the colors the game allows.",
-    tech: ["JavaScript", "Canvas", "Color Clamping"],
-    links: { repo: "https://github.com/kjsLand/TheScribbler" },
+      "Turns any image into a Jackbox TKO drawing: it finds the game's canvas, matches each pixel to the nearest color the game allows, and draws it for you.",
+    tech: ["JavaScript", "Chrome Extension", "Canvas", "Color Matching"],
+    links: {
+      repo: "https://github.com/kjsLand/TheScribbler",
+      live: "https://chromewebstore.google.com/detail/leanngcjjmeiaghmgpmkhabfledidong",
+    },
     hue: 205,
+    image: "/projects/the-scribbler.svg",
   },
   {
     title: "Rate It",
-    kind: "Python App",
+    kind: "Desktop & Mobile App",
     description:
-      "Uses the Spotify API to let users store song ratings locally — the goal is to quickly build playlists and discover new artists.",
-    tech: ["Python", "Spotify API", "Requests"],
+      "Rate songs from your Spotify library, keep each rating's history, and build playlists and discover artists from them. Being rebuilt with Tauri 2 as one app for macOS, Windows, Linux, iOS, and Android.",
+    tech: ["Rust", "TypeScript", "React", "Tauri 2", "SQLite", "Spotify API"],
     links: { repo: "https://github.com/kjsLand/rate_it" },
     hue: 145,
+    image: "/projects/rate-it.svg",
   },
   {
     title: "DQI SAT Solver",
@@ -55,15 +74,6 @@ export const projects: Project[] = [
     links: { repo: "https://github.com/kjsLand/DQI_SAT_Solver" },
     private: true,
     hue: 320,
-  },
-  {
-    title: "Vendorstub",
-    kind: "Full-Stack Website",
-    description:
-      "A contract management platform MVP in active development, with a RAG system for working with contract documents.",
-    tech: ["Next.js", "Tailwind CSS", "PostgreSQL", "AWS", "RAG"],
-    links: { live: "https://vendorstub.com/" },
-    hue: 45,
-    featured: true,
+    image: "/projects/dqi-sat-solver.svg",
   },
 ];

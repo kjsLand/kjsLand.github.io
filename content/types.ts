@@ -40,11 +40,11 @@ export type Project = {
   links?: { repo?: string; live?: string };
   /** Hides the repo button and shows a lock (e.g. until a paper is published). */
   private?: boolean;
-  /** Featured projects get a wider tile in the bento grid. */
+  /** Not used by the current uniform grid; kept so a featured layout can come back without editing data. */
   featured?: boolean;
-  /** Hue (0–360) used to generate the cover art when there's no image. */
+  /** Hue (0–360) used to generate the pattern cover art when there's no image. */
   hue: number;
-  /** Optional screenshot, e.g. "/projects/token-watcher.png" (place the file in /public/projects). */
+  /** Optional cover image, ~2:1, e.g. "/projects/token-watcher.svg" (place the file in /public/projects). Swap in a screenshot any time. */
   image?: string;
 };
 

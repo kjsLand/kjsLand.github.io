@@ -28,7 +28,7 @@ export default function Skills({ index }: { index?: number }) {
                     key={s}
                     className="group/skill flex items-center gap-3 rounded-xl px-3 py-2.5 text-[15px] text-muted transition-colors hover:bg-white/[0.04] hover:text-fg"
                   >
-                    <span className="grid h-8 w-8 place-items-center rounded-lg border border-line bg-white/[0.02] text-faint transition-colors group-hover/skill:border-cyan/30 group-hover/skill:text-cyan">
+                    <span className="grid h-8 w-8 place-items-center rounded-lg border border-line bg-white/[0.02] text-faint transition-colors group-hover/skill:border-gold/30 group-hover/skill:text-gold">
                       <SkillIcon name={s} />
                     </span>
                     {s}

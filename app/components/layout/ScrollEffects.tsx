@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 /**
  * One passive scroll listener for the whole site. It:
  *  - publishes `--scroll-y` on <html> (used by .parallax-* / .hero-scroll-away in globals.css)
- *  - drives the gradient reading-progress bar at the top of the page
+ *  - drives the striped reading-progress bar at the top of the page
  */
 export default function ScrollEffects() {
   const barRef = useRef<HTMLDivElement>(null);
@@ -35,7 +35,7 @@ export default function ScrollEffects() {
 
   return (
     <div aria-hidden className="pointer-events-none fixed inset-x-0 top-0 z-[70] h-[2px]">
-      <div ref={barRef} className="h-full origin-left scale-x-0 bg-accent-gradient" />
+      <div ref={barRef} className="h-full origin-left scale-x-0 bg-accent-stripes" />
     </div>
   );
 }

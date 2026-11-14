@@ -37,7 +37,7 @@ export default function Education({ index }: { index?: number }) {
                   </div>
                   {avg !== null && (
                     <div className="shrink-0 text-right">
-                      <p className="text-gradient text-4xl font-semibold tracking-tight">{avg.toFixed(2)}</p>
+                      <p className="text-4xl font-semibold tracking-tight text-gold">{avg.toFixed(2)}</p>
                       <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-faint">avg. term GPA</p>
                     </div>
                   )}
@@ -70,7 +70,7 @@ export default function Education({ index }: { index?: number }) {
                 key={h}
                 className="glass flex items-center gap-2 rounded-full px-4 py-2 text-sm text-fg"
               >
-                <FiAward className="h-4 w-4 text-cyan" aria-hidden /> {h}
+                <FiAward className="h-4 w-4 text-gold" aria-hidden /> {h}
               </li>
             ))}
           </ul>

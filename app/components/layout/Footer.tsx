@@ -2,7 +2,8 @@ import { FiArrowUp } from "react-icons/fi";
 import { site, socials } from "@/content";
 import SocialIcon from "@/app/components/ui/SocialIcon";
 
-export default function Footer() {
+/** `showSocials={false}` hides the social icons on pages that already show them elsewhere (the home page hero). */
+export default function Footer({ showSocials = true }: { showSocials?: boolean }) {
   return (
     <footer className="border-t border-line">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 px-5 py-10 md:flex-row md:px-8">
@@ -16,17 +17,18 @@ export default function Footer() {
         </div>
 
         <div className="flex items-center gap-2">
-          {socials.map((s) => (
-            <a
-              key={s.label}
-              href={s.href}
-              aria-label={s.label}
-              {...(s.icon === "email" ? {} : { target: "_blank", rel: "noreferrer" })}
-              className="grid h-10 w-10 place-items-center rounded-full border border-line text-muted transition-colors hover:border-white/20 hover:text-fg"
-            >
-              <SocialIcon icon={s.icon} className="h-4 w-4" />
-            </a>
-          ))}
+          {showSocials &&
+            socials.map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                aria-label={s.label}
+                {...(s.icon === "email" ? {} : { target: "_blank", rel: "noreferrer" })}
+                className="grid h-10 w-10 place-items-center rounded-full border border-line text-muted transition-colors hover:border-white/20 hover:text-fg"
+              >
+                <SocialIcon icon={s.icon} className="h-4 w-4" />
+              </a>
+            ))}
           <a
             href="#top"
             className="ml-2 flex items-center gap-1.5 rounded-full border border-line px-4 py-2.5 font-mono text-xs text-muted transition-colors hover:border-white/20 hover:text-fg"
