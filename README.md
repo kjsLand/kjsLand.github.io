@@ -19,12 +19,12 @@ Every file has a copy-paste template at the top.
 | I want to… | Edit | Notes |
 |---|---|---|
 | Add a job | [`content/experience.ts`](content/experience.ts) | Newest first. `end: "Present"` works, and the duration ("1 yr 2 mos") is computed for you. |
-| Add a project | [`content/projects.ts`](content/projects.ts) | `featured: true` gives it a wide tile, and the bento grid rebalances itself. `hue` (0–360) colors the generated cover. To use a screenshot, put it in `public/projects/` and set `image: "/projects/name.png"`. |
+| Add a project | [`content/projects.ts`](content/projects.ts) | Projects fill the home page grid in file order. `hue` (0–360) colors the generated cover. To use a screenshot, put it in `public/projects/` and set `image: "/projects/name.png"`. |
 | Publish a paper link | [`content/papers.ts`](content/papers.ts) | Add `links: { paper, pdf, code }`. Buttons only appear for links that exist. |
 | Make a private repo public | [`content/projects.ts`](content/projects.ts) | Remove `private: true`. |
 | Add a degree / term GPA | [`content/education.ts`](content/education.ts) | Each term becomes a point on the chart. |
-| Add a skill | [`content/skills.ts`](content/skills.ts) | It shows up in the Skills section, the marquee, and the ⌘K palette. For a brand icon, add it to [`SkillIcon.tsx`](app/components/ui/SkillIcon.tsx). |
-| Change name, roles, tagline, or links | [`content/site.ts`](content/site.ts) | `roles` feeds the hero typewriter. Set `availability` to show a green "open to work" pill, and `resumeUrl` to show a Résumé button. |
+| Add a skill | [`content/skills.ts`](content/skills.ts) | Not shown on the site right now (the Skills section and marquee are off the home page). For a brand icon, add it to [`SkillIcon.tsx`](app/components/ui/SkillIcon.tsx). |
+| Change name, roles, tagline, or links | [`content/site.ts`](content/site.ts) | `roles` feeds the hero typewriter. `socials` are shown once on the home page, in the hero. Set `availability` to show a green "open to work" pill, and `resumeUrl` to show a Résumé button. |
 | Add, remove, or reorder a section | [`app/sections/index.ts`](app/sections/index.ts) | Updates the page order, the navbar, the ⌘K palette, and the 01/02/03 numbering. |
 
 The hero stats (work experiences, projects, degrees, papers) are **counted from these files**, so they never go stale.

@@ -97,7 +97,7 @@ export default function ExperiencePage() {
         {/* ── Outro ─────────────────────────────────────────────── */}
         <section className="mx-auto mt-32 flex max-w-6xl flex-col items-start justify-between gap-6 px-5 pb-28 md:mt-48 md:flex-row md:items-center md:px-8">
           <p className="max-w-lg text-2xl font-semibold tracking-tight text-fg md:text-3xl">
-            Want the rest of the story? <span className="text-muted">Projects and skills live on the home page.</span>
+            Want the rest of the story? <span className="text-muted">Projects live on the home page.</span>
           </p>
           <div className="flex flex-wrap gap-3">
             <Link

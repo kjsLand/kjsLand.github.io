@@ -1,8 +1,7 @@
 import type { Project } from "./types";
 
 /**
- * Projects, in the order they appear. Featured projects get wider tiles, and the
- * grid rebalances itself automatically no matter how many you add.
+ * Projects, in the order they appear in the home page grid (every tile is the same size).
  *
  * Template:
  *   {

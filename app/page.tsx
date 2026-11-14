@@ -1,11 +1,10 @@
-import { papers, projects, socials } from "@/content";
+import { projects, socials } from "@/content";
 import Background from "@/app/components/layout/Background";
 import CommandPalette, { type PaletteItem } from "@/app/components/layout/CommandPalette";
 import Footer from "@/app/components/layout/Footer";
 import Navbar from "@/app/components/layout/Navbar";
 import ScrollEffects from "@/app/components/layout/ScrollEffects";
 import Hero from "@/app/sections/Hero";
-import SkillMarquee from "@/app/sections/SkillMarquee";
 import { sections } from "@/app/sections";
 import { site } from "@/content";
 import { pageNav } from "@/app/lib/nav";
@@ -26,7 +25,6 @@ export default function HomePage() {
       href: (!p.private && (p.links?.live ?? p.links?.repo)) || "#projects",
       external: !p.private && Boolean(p.links?.live ?? p.links?.repo),
     })),
-    ...papers.map((p) => ({ label: p.title, group: "Papers", hint: String(p.year), href: "#papers" })),
     ...socials.map((s) => ({
       label: s.label,
       group: "Links",
@@ -51,15 +49,15 @@ export default function HomePage() {
 
       <main className="overflow-x-clip">
         <Hero />
-        <SkillMarquee />
         {sections.map(({ id, Component, inNav }) => {
-          // Only navigable sections get a 01/02/03 number.
+          // Only navigable sections get a 01/02/03 number, and only when there's more than one.
           const n = nav.findIndex((s) => s.id === id);
-          return <Component key={id} index={inNav === false ? undefined : n + 1} />;
+          return <Component key={id} index={inNav === false || nav.length < 2 ? undefined : n + 1} />;
         })}
       </main>
 
-      <Footer />
+      {/* The hero already shows the social links, so the footer skips them here. */}
+      <Footer showSocials={false} />
     </>
   );
 }

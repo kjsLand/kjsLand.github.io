@@ -1,12 +1,14 @@
 import type { ComponentType } from "react";
 // Work.tsx and Education.tsx are the old separate sections. Journey.tsx (the horizontal scroll timeline)
 // and Statline.tsx were moved off the home page: work history and the roles live on /experience.
+// Papers.tsx and Skills.tsx were removed from the home page (papers live on /experience). Contact.tsx was
+// removed too: the hero holds the site's one set of social links.
 // import Work from "./Work";
 // import Education from "./Education";
 import Projects from "./Projects";
-import Papers from "./Papers";
-import Skills from "./Skills";
-import Contact from "./Contact";
+// import Papers from "./Papers";
+// import Skills from "./Skills";
+// import Contact from "./Contact";
 
 /**
  * Section registry for the home page: controls page order,
@@ -29,7 +31,7 @@ export const sections: SectionEntry[] = [
   // { id: "work", label: "Work", Component: Work },
   // { id: "education", label: "Education", Component: Education },
   { id: "projects", label: "Projects", Component: Projects },
-  { id: "papers", label: "Papers", Component: Papers },
-  { id: "skills", label: "Skills", Component: Skills },
-  { id: "contact", label: "Contact", Component: Contact },
+  // { id: "papers", label: "Papers", Component: Papers },
+  // { id: "skills", label: "Skills", Component: Skills },
+  // { id: "contact", label: "Contact", Component: Contact },
 ];
